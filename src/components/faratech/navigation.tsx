@@ -53,28 +53,28 @@ export function Navigation({ lang }: { lang: Lang }) {
 
   return (
     <>
-      <div className="bg-[var(--brand-navy)] text-white/70 text-xs py-2 hidden md:block relative z-[60]">
+      <div className="bg-[var(--modern-bg)] border-b border-[var(--modern-border)] text-[var(--modern-text-secondary)] text-xs py-2 hidden md:block relative z-[60]">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between overflow-visible">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--modern-accent)] inline-block" />
               {t(T.iso, lang)}
             </span>
             <span>{t(T.ceFda, lang)}</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="flex items-center gap-1.5 hover:text-white transition-colors" dir="ltr">
+            <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="flex items-center gap-1.5 hover:text-[var(--modern-text)] transition-colors" dir="ltr">
               <Phone size={11} />
               {PHONE}
             </a>
             <div className="relative">
-              <button onClick={() => setLangOpen(!langOpen)} className="flex items-center gap-1 hover:text-white transition-colors">
+              <button onClick={() => setLangOpen(!langOpen)} className="flex items-center gap-1 hover:text-[var(--modern-text)] transition-colors">
                 <Globe size={11} />
                 <span lang={lang} style={{ fontFamily: LANG_LABEL_FONT[lang] }}>{LANG_LABELS[lang]}</span>
                 <ChevronDown size={10} />
               </button>
               {langOpen && (
-                <div className="absolute right-0 mt-2 bg-white text-[var(--brand-navy)] rounded-md shadow-lg border border-border min-w-[120px] z-[100]">
+                <div className="absolute right-0 mt-2 bg-white text-[var(--modern-text)] rounded-lg shadow-lg border border-[var(--modern-border)] min-w-[120px] z-[100]">
                   {LANGS.map((l) => (
                     <button
                       key={l}
@@ -82,7 +82,7 @@ export function Navigation({ lang }: { lang: Lang }) {
                       lang={l}
                       dir={l === "en" ? "ltr" : "rtl"}
                       style={{ fontFamily: LANG_LABEL_FONT[l] }}
-                      className={`block w-full text-left px-3 py-2 text-xs font-medium hover:bg-muted ${l === lang ? "bg-muted" : ""}`}
+                      className={`block w-full text-left px-3 py-2 text-xs font-medium hover:bg-[var(--modern-bg)] ${l === lang ? "bg-[var(--modern-bg)]" : ""}`}
                     >
                       {LANG_LABELS[l]}
                     </button>
@@ -96,7 +96,7 @@ export function Navigation({ lang }: { lang: Lang }) {
 
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-border" : "bg-white"
+          isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-[var(--modern-border)]" : "bg-white"
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -108,8 +108,8 @@ export function Navigation({ lang }: { lang: Lang }) {
               decoding="async"
             />
             <span className="hidden sm:flex flex-col leading-none">
-              <span className="font-heading font-bold text-[var(--brand-navy)] text-lg tracking-widest uppercase">FARATECH</span>
-              <span className="text-[9px] text-muted-foreground tracking-[0.2em] uppercase">Mobility Systems</span>
+              <span className="font-heading font-bold text-[var(--modern-text)] text-lg tracking-widest uppercase">FARATECH</span>
+              <span className="text-[9px] text-[var(--modern-text-secondary)] tracking-[0.2em] uppercase">Mobility Systems</span>
             </span>
           </Link>
 
@@ -123,7 +123,7 @@ export function Navigation({ lang }: { lang: Lang }) {
               >
                 <Link
                   to={item.to}
-                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-[var(--brand-navy)] transition-colors rounded-md hover:bg-muted"
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[var(--modern-text-secondary)] hover:text-[var(--modern-text)] transition-colors rounded-md hover:bg-[var(--modern-bg)]"
                 >
                   {item.label}
                   {item.children && (
@@ -132,14 +132,14 @@ export function Navigation({ lang }: { lang: Lang }) {
                 </Link>
                 {item.children && activeDropdown === item.label && (
                   <div className="absolute top-full left-0 pt-2 w-64 z-[70]">
-                    <div className="bg-white border border-border rounded-lg shadow-xl p-2">
+                    <div className="bg-white border border-[var(--modern-border)] rounded-lg shadow-xl p-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           to={child.to}
-                          className="flex flex-col px-3 py-2.5 rounded-md hover:bg-muted group transition-colors"
+                          className="flex flex-col px-3 py-2.5 rounded-md hover:bg-[var(--modern-bg)] group transition-colors"
                         >
-                          <span className="text-sm font-medium text-foreground group-hover:text-[var(--brand-navy)]">{child.label}</span>
+                          <span className="text-sm font-medium text-[var(--modern-text)] group-hover:text-[var(--modern-accent)]">{child.label}</span>
                         </Link>
                       ))}
                     </div>
@@ -150,34 +150,34 @@ export function Navigation({ lang }: { lang: Lang }) {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <a href={`/${lang}#contact`} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors px-3 py-2">
+            <a href={`/${lang}#contact`} className="text-sm font-medium text-[var(--modern-text-secondary)] hover:text-[var(--modern-text)] transition-colors px-3 py-2">
               {t(T.findDistributor, lang)}
             </a>
-            <a href={`/${lang}#contact`} className="bg-[var(--brand-red)] hover:bg-[var(--brand-red-dark)] text-white text-sm font-semibold px-5 py-2.5 rounded-md transition-all hover:shadow-md">
+            <a href={`/${lang}#contact`} className="bg-[var(--modern-accent)] hover:bg-[var(--modern-accent-dark)] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all hover:shadow-md hover:-translate-y-0.5">
               {t(T.requestQuote, lang)}
             </a>
           </div>
 
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 rounded-md hover:bg-muted transition-colors" aria-label="Toggle menu">
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 rounded-md hover:bg-[var(--modern-bg)] transition-colors" aria-label="Toggle menu">
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </nav>
 
         {mobileOpen && (
-          <div className="lg:hidden bg-white border-t border-border px-6 py-4 space-y-1">
+          <div className="lg:hidden bg-white border-t border-[var(--modern-border)] px-6 py-4 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-3 text-sm font-medium text-foreground hover:text-[var(--brand-navy)] hover:bg-muted rounded-md transition-colors"
+                className="block px-3 py-3 text-sm font-medium text-[var(--modern-text)] hover:text-[var(--modern-accent)] hover:bg-[var(--modern-bg)] rounded-md transition-colors"
               >
                 {item.label}
               </Link>
             ))}
-            <div className="pt-3 border-t border-border mt-3 flex items-center gap-2 px-3" dir="ltr">
-              <Phone size={12} className="text-muted-foreground" />
-              <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="text-xs text-muted-foreground">{PHONE}</a>
+            <div className="pt-3 border-t border-[var(--modern-border)] mt-3 flex items-center gap-2 px-3" dir="ltr">
+              <Phone size={12} className="text-[var(--modern-text-secondary)]" />
+              <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="text-xs text-[var(--modern-text-secondary)]">{PHONE}</a>
             </div>
             <div className="flex gap-2 px-3 pt-2 flex-wrap">
               {LANGS.map((l) => (
@@ -187,14 +187,14 @@ export function Navigation({ lang }: { lang: Lang }) {
                   lang={l}
                   dir={l === "en" ? "ltr" : "rtl"}
                   style={{ fontFamily: LANG_LABEL_FONT[l] }}
-                  className={`text-xs font-semibold px-2.5 py-1 border rounded ${l === lang ? "bg-[var(--brand-navy)] text-white border-[var(--brand-navy)]" : "border-border text-muted-foreground"}`}
+                  className={`text-xs font-semibold px-2.5 py-1 border rounded ${l === lang ? "bg-[var(--modern-text)] text-white border-[var(--modern-text)]" : "border-[var(--modern-border)] text-[var(--modern-text-secondary)]"}`}
                 >
                   {LANG_LABELS[l]}
                 </button>
               ))}
             </div>
             <div className="pt-2">
-              <a href={`/${lang}#contact`} className="block text-center bg-[var(--brand-navy)] text-white text-sm font-semibold px-5 py-3 rounded-md">
+              <a href={`/${lang}#contact`} className="block text-center bg-[var(--modern-accent)] text-white text-sm font-semibold px-5 py-3 rounded-lg">
                 {t(T.requestQuote, lang)}
               </a>
             </div>
