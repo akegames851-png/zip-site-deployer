@@ -68,6 +68,22 @@
   --input: oklch(0.92 0.005 255);
   --ring: oklch(0.52 0.22 25);
   --radius: 0.375rem;
+
+  /* Modern minimal redesign tokens (homepage redesign) */
+  --modern-bg: #FAFAF8;
+  --modern-surface: #FFFFFF;
+  --modern-text: #1A1A18;
+  --modern-text-secondary: #6B6B68;
+  --modern-text-muted: #999996;
+  --modern-border: #E5E5E0;
+  --modern-border-light: #F0F0ED;
+  --modern-accent: #2563EB;
+  --modern-accent-dark: #1D4ED8;
+  --modern-accent-light: #DBEAFE;
+  --modern-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --modern-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --modern-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.08);
+  --modern-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Peyda — Persian display/UI font (single-weight file, registered across full weight range so the browser uses it for every requested weight and synthesizes bolder where needed). */
